@@ -1,0 +1,143 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+
+{% block content %}
+    <div class="d-flex align-items-center gap-2 mb-4">
+        <h1>Sign up</h1>
+
+    </div>
+    
+
+    <form>
+        <div class="mb-3 d-flex ">
+            <div class="col-2">
+            <label for="exampleInputTitle1" class="form-label">Login</label>
+            </div>
+            
+            <div class="col-5">
+            <!--<div class="input has-validation">
+                <div class="input is-invalid">
+                <input type="login" class="form-control is-invalid" id="exampleInputLoginInvalid1" placeholder="dr_pepper" required>
+                </div>
+                <div class="invalid-feedback">
+                Please enter a login.
+                </div>
+            </div>-->
+            <input type="login" class="form-control" id="exampleInputLogin1" aria-describedby="loginHelp" placeholder="dr_pepper">
+            </div>
+        </div>
+
+        <div class="mb-3 d-flex ">
+            <div class="col-2">
+                <label for="exampleInputTitle1" class="form-label">Email</label>
+            </div>
+            
+            <div class="col-5">
+                <!--<div class="input has-validation">
+                <div class="input is-invalid">
+                    <input type="email" class="form-control is-invalid" id="exampleInputEmailInvalid1" placeholder="dr.pepper@mail.ru" required>
+                </div>
+                <div class="invalid-feedback">
+                    Please enter email adress in the email@example.com format.
+                </div>
+                </div>-->
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dr.pepper@mail.ru">
+            </div>
+        </div>
+
+        <div class="mb-3 d-flex ">
+            <div class="col-2">
+                <label for="exampleInputTitle1" class="form-label">NickName</label>
+            </div>
+            
+            <div class="col-5">
+                <!--<div class="input has-validation">
+                <div class="input is-invalid">
+                    <input type="login" class="form-control is-invalid" id="exampleInputNickNameInvalid1" placeholder="Dr. Pepper" required>
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a NickName.
+                </div>
+                </div>-->
+                <input type="nickname" class="form-control" id="exampleInputNickName1" aria-describedby="NickNameHelp" placeholder="Dr. Pepper">
+            </div>
+        </div>
+
+
+        <div class="mb-3 d-flex ">
+            <div class="col-2">
+            <label for="exampleInputTitle1" class="form-label">Password</label>
+            </div>  
+
+            <div class="col-5">
+
+            <div class="input has-validation">
+                <div class="input is-invalid">
+                
+                    <input type="password" class="form-control is-invalid" id="exampleInputPasswordInvalid1" placeholder="********" required>
+                </div>
+                <div class="invalid-feedback">
+                    Your password must contain at least 4 characters including at least 1 letter.
+                </div>
+            </div>
+            <!--<div class="mb-3">
+                <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="PasswordHelp" placeholder="********">
+            </div>-->
+
+            </div>
+        </div>
+
+        <div class="mb-3 d-flex ">
+            <div class="col-2">
+                <label for="exampleInputTitle1" class="form-label">Repeat Password</label>
+            </div>  
+
+            <div class="col-5">
+
+                <!--<div class="input has-validation">
+                    <div class="input is-invalid">
+                    
+                    <input type="password" class="form-control is-invalid" id="exampleInputPasswordRepeatInvalid1" placeholder="********" required>
+                    </div>
+                    <div class="invalid-feedback">
+                    Passwords do not match.
+                    </div>
+                </div>-->
+                <div class="mb-3">
+                <input type="password" class="form-control" id="exampleInputPasswordRepeat1" aria-describedby="PasswordRepeatHelp" placeholder="********">
+                </div>
+                
+
+            </div>
+            </div>
+
+            <div class="mb-3 d-flex ">
+            <div class="col-2">
+                <label for="exampleInputTitle1" class="form-label">Upload avatar</label>
+            </div>  
+
+            <div class="col-5">
+
+                <!--<div class="input has-validation">
+                <div class="mb-3">
+                    <div class="input is-invalid">
+                    <input type="file" class="form-control is-invalid" id="exampleFormFileInvalid1" required>
+                    </div>
+                    <div class="invalid-feedback">
+                    File format not supported.
+                    </div>
+                </div>
+                </div>-->
+                <div class="mb-3">
+                <input class="form-control" type="file" id="formFile1" >
+                </div>
+                
+                
+                <button type="submit" class="btn btn-outline-dark">Register!</button>
+
+            </div>
+            
+    </form>
+    
+ {% endblock %}           

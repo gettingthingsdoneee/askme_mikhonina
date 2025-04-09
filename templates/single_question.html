@@ -1,0 +1,23 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="col-8 vh-100" >
+  <div class="d-flex align-items-center gap-2 mb-4">
+    <h1>{{ question.title }}</h1>
+  </div>
+  
+  {% include 'layouts/question.html' %}
+
+  {% for answer in answers %}
+      {% include 'layouts/answer.html' %}
+  {% endfor %}
+    
+  {% include 'layouts/pagination.html' %} 
+
+    
+</section>
+
+{% endblock %}
+

@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="d-flex align-items-center gap-2 mb-4">
+        <h1>New Question</h1>
+    </div>
+    
+    <articles class="d-flex gap-3 flex-column">
+        <form>
+            <div class="mb-3 d-flex justify-content-between">
+                <div class="col-1">
+                <label for="exampleFloatingInputTitle1" class="form-label">Title</label>
+                </div>
+                
+                <div class="col-11">
+                <!--<div class="input has-validation">
+                    <div class="input is-invalid">
+                    <input type="title" class="form-control is-invalid" id="exampleInputTitleInvalid1" placeholder="How to build a moon park?" required>
+                    </div>
+                    <div class="invalid-feedback">
+                    Please choose a title.
+                    </div>
+                </div>-->
+                <input type="title" class="form-control" id="exampleInputTitle1" aria-describedby="emailHelp" placeholder="How to build a moon park?">
+                </div>
+            </div>
+
+            
+            <div class="mb-3 d-flex justify-content-between">
+                <div class="col-1">
+                    <label for="exampleFormControlTextarea1" class="form-label">Text</label>
+                </div>
+                <div class="col-11">
+                    <div class="input has-validation">
+                    <div class="input is-invalid">
+                        <textarea class="form-control is-invalid" id="exampleFormControlTextareaInvalid1" rows="10" placeholder="Really, how ? &#10Have no idea about it" required></textarea>
+                    </div>
+                    <div class="invalid-feedback">
+                        Your text must contain at least 5 symbols.
+                    </div>
+                    </div>
+                    <!--<textarea class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="Really, how ? &#10Have no idea about it"></textarea>-->
+                </div>
+            </div>
+
+
+            <div class="mb-3 d-flex justify-content-between ">
+                <div class="col-1">
+                    <label class="form-label" for="exampleInputTags1">Tags</label>
+                </div>
+                <div class="col-11 d-grid gap-3">
+                    <!--<div class="input has-validation">
+                    <div class="input is-invalid">
+                        <input type="tags" class="form-control is-ivalid" id="exampleInputTagsInvalid1" placeholder="moon, park, puzzle" required>
+                    </div>
+                    <div class="invalid-feedback">
+                        You can choose no more than 3 tags for one question. Tags must be separated by comma.
+                    </div>
+                    </div>-->
+                    <input type="tags" class="form-control" id="exampleInputTags1" placeholder="moon, park, puzzle">
+                    <button type="submit" class="btn btn-outline-dark col-1">Ask!</button>
+                </div>
+            </div>
+            
+            </form>
+        
+    </articles>
+
+{% endblock %}    
+    
+        
