@@ -1,0 +1,160 @@
+{% extends "layouts/base_index.html" %}
+{% load static %}
+
+{% block content %}
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">Navbar</a>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Ask!</button>
+            </form>
+
+            <div class="d-flex ap-2 align-items-center">
+              <div>
+                  <img src="hello.jpg" class="img-thumbnail"  alt="...">
+              </div>
+              <div class="content">
+                  <div class="content__name">Dr. Pepper</div>
+                  <div class="content__links">
+                      <a href="#">Settings</a>
+                      <a href="#">Log out</a>
+                  </div>
+              </div>
+  
+            </div>
+
+        </div>
+      </nav>
+
+      <main class="container mt-2">
+        <div class="row">
+          <section class="col-8 vh-100" >
+            <div class="d-flex align-items-center gap-2 mb-4">
+              <h1>New Questions</h1>
+              <a href="#">Hot Questions</a>
+            </div>
+            {% for question in questions%}
+              <article class="d-flex gap-3 flex-column">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-2">
+                        <div style="height: 100px" class="border mb-2 w-100">
+                          <img src="{% static "/img/user.jpg" %} " alt="img" class="img-fluid">
+                        </div>
+                        <div>
+                          <input type="number" class="form-control" value="5">
+                        </div>
+                      </div>
+                      <div class="col d-flex flex-column justify-content-between">
+                        <div>
+                          <h5 class="card-title">
+                            <a href="/question.html">{{ question.title }}</a>
+                          </h5>
+                          <p class="card-text">
+                            {{question.text}}
+                          </p>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <a href="">Answer (3)</a>
+                          </div>
+                          <div class="col">
+                            <span>Tags:</span>
+                            <span class="badge rounded-pill text-bg-primary">Primary</span>
+                            <span class="badge rounded-pill text-bg-secondary">Secondary</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </article>
+            {% endfor %}    
+            <article class="d-flex gap-3 flex-column">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-2">
+                      <div style="height: 100px" class="border mb-2 w-100">
+                        <img src="{% static "/img/user.jpg" %} " alt="img" class="img-fluid">
+                      </div>
+                      <div>
+                        <input type="number" class="form-control" value="5">
+                      </div>
+                    </div>
+                    <div class="col d-flex flex-column justify-content-between">
+                      <div>
+                        <h5 class="card-title">
+                          <a href="/question.html">{{ questions.0.title }}</a>
+                        </h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <a href="">Answer (3)</a>
+                        </div>
+                        <div class="col">
+                          <span>Tags:</span>
+                          <span class="badge rounded-pill text-bg-primary">Primary</span>
+                          <span class="badge rounded-pill text-bg-secondary">Secondary</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              
+              
+            </article>
+            
+
+          </section>
+
+          <aside class="col-3 ">
+            <section class="mb-3">
+              <h3>Popular tags</h3>
+              <div>
+                <span class="badge text-bg-primary">Primary</span>
+                <span class="badge text-bg-secondary">Secondary</span>
+                <span class="badge text-bg-success">Success</span>
+                <span class="badge text-bg-danger">Danger</span>
+                <span class="badge text-bg-warning">Warning</span>
+                <span class="badge text-bg-info">Info</span>
+                <span class="badge text-bg-light">Light</span>
+                <span class="badge text-bg-dark">Dark</span>
+              </div>
+            </section>
+            <section>
+              <h3>Best members</h3>
+              <div>
+                <a class="d-block" href="#">Member</a>
+                <a class="d-block" href="#">Member</a>
+                <a class="d-block" href="#">Member</a>
+                <a class="d-block" href="#">Member</a>
+                <a class="d-block" href="#">Member</a>
+              </div>
+            </section>
+
+          </aside>
+        </div>
+      </main>
+    <script src="js/bootstrap.bundle.js" ></script>
+  </body>
+
+</html>
