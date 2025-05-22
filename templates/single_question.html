@@ -2,22 +2,39 @@
 {% load static %}
 
 {% block content %}
+    <div class="d-flex align-items-center gap-2 mb-4">
+        <h1>{{question.title}}</h1>
+    </div>
 
-<section class="col-8 vh-100" >
-  <div class="d-flex align-items-center gap-2 mb-4">
-    <h1>{{ question.title }}</h1>
-  </div>
-  
-  {% include 'layouts/question.html' %}
+    <articles class="d-flex gap-3 flex-column">
+        {%include 'layouts/question.html'%}
 
-  {% for answer in answers %}
-      {% include 'layouts/answer.html' %}
-  {% endfor %}
+        <span class="border border-end border-secondary"></span>
+
+        <articles class="d-flex gap-3 flex-column">
+            {% for answer in answers %}
+                {%include 'layouts/answer.html'%}
+            {% endfor %}
+        </articles>    
+
+
+        {% include "layouts/pagination.html" %}
+
+        <span class="mt-0 border border-secondary"></span>
+
+        <form>
+            <div class="d-flex gap-3 flex-column">
+                <div>
+                    <textarea class="mb-3 form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Enter your answer here.."></textarea>
+                    <button type="submit" class=" mb-3 btn btn-primary">Answer</button>
+                </div>
+            </div>
+        </form>
+
+    </articles>
+
+
+
     
-  {% include 'layouts/pagination.html' %} 
 
-    
-</section>
-
-{% endblock %}
-
+{% endblock %}    
