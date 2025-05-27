@@ -1,5 +1,6 @@
 {% extends "layouts/base.html" %}
 {% load static %}
+{% load bootstrap5 %}
 
 {% block content %}
     <div class="d-flex align-items-center gap-2 mb-4">
@@ -7,8 +8,19 @@
     </div>
     
     <articles class="d-flex gap-3 flex-column">
-        <form>
-            <div class="mb-3 d-flex justify-content-between">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">Ask</button>
+            {% endbuttons %}
+        </form>
+        
+    </articles>
+
+{% endblock %} 
+
+            {% comment %} <div class="mb-3 d-flex justify-content-between">
                 <div class="col-1">
                 <label for="exampleFloatingInputTitle1" class="form-label">Title</label>
                 </div>
@@ -61,12 +73,8 @@
                     <input type="tags" class="form-control" id="exampleInputTags1" placeholder="moon, park, puzzle">
                     <button type="submit" class="btn btn-outline-dark col-1">Ask!</button>
                 </div>
-            </div>
+            </div> {% endcomment %}
             
-            </form>
-        
-    </articles>
-
-{% endblock %}    
+               
     
         

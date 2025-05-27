@@ -1,63 +1,70 @@
 {% extends "layouts/base.html" %}
 {% load static %}
+{% load bootstrap5 %}
 
 
 {% block content %}
     <div class="d-flex align-items-center gap-2 mb-4">
         <h1>Log In</h1>
-
     </div>
     
-
-    <form>
-        <div class="mb-3 d-flex ">
-            <div class="col-2">
-            <label for="exampleFloatingInputTitle1" class="form-label">Login</label>
-            </div>
-            
-            <div class="col-5">
-            <!--<div class="input has-validation">
-                <div class="input is-invalid">
-                <input type="login" class="form-control is-invalid" id="exampleInputLoginInvalid1" placeholder="Enter your login here" required>
+    <div class="mb-3 d-flex ">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            {% endbuttons %}    
+            {% comment %} 
+                <div class="col-2">
+                <label for="exampleFloatingInputTitle1" class="form-label">Login</label>
                 </div>
-                <div class="invalid-feedback">
-                Please enter a login.
-                </div>
-            </div>-->
-            <input type="login" class="form-control" id="exampleInputLogin1" aria-describedby="emailHelp" placeholder="Enter your login here">
-            </div>
-        </div>
-
-        <div class="mb-3 d-flex ">
-            <div class="col-2">
-            <label for="exampleFloatingInputTitle1" class="form-label">Password</label>
-            </div>  
-
-            <div class="col-5">
-
-            <div class="input has-validation">
-                <div class="mb-3">
-                <div class="input is-invalid">
                 
-                    <input type="password" class="form-control is-invalid" id="exampleInputPasswordInvalid1" placeholder="********" required>
+                <div class="col-5">
+                <!--<div class="input has-validation">
+                    <div class="input is-invalid">
+                    <input type="login" class="form-control is-invalid" id="exampleInputLoginInvalid1" placeholder="Enter your login here" required>
+                    </div>
+                    <div class="invalid-feedback">
+                    Please enter a login.
+                    </div>
+                </div>-->
+                    <input type="login" class="form-control" id="exampleInputLogin1" name="username" aria-describedby="emailHelp" placeholder="Enter your login here">
                 </div>
-                <div class="invalid-feedback">
-                    Wrong password.
-                </div>
-                </div>
-            </div>
-            <!--<div class="mb-3">
-                <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="emailHelp" placeholder="********">
-            </div>-->
-            
-            <button type="submit" class="btn btn-outline-dark">Log in!</button>
-            <div class="mt-2">
-                <a href="#">create new account</a>
             </div>
 
-            </div>
-        </div>
-    </form>
+            <div class="mb-3 d-flex ">
+                <div class="col-2">
+                <label for="exampleFloatingInputTitle1" class="form-label">Password</label>
+                </div>  
+
+                <div class="col-5">
+
+                {% comment %} <div class="input has-validation">
+                    <div class="mb-3">
+                    <div class="input is-invalid">
+                    
+                        <input type="password" class="form-control is-invalid" id="exampleInputPasswordInvalid1" placeholder="********" required>
+                    </div>
+                    <div class="invalid-feedback">
+                        Wrong password.
+                    </div>
+                    </div>
+                </div> 
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" aria-describedby="emailHelp" placeholder="********">
+                </div>
+                
+                <button type="submit" class="btn btn-outline-dark">Log in!</button>
+                <div class="mt-2">
+                    <a href="#">create new account</a>
+                </div>
+
+                
+            </div> {% endcomment %}
+
+        </form>
+    </div>
 
 {% endblock %}   
 

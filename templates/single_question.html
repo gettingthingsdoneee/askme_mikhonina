@@ -1,5 +1,6 @@
 {% extends "layouts/base.html" %}
 {% load static %}
+{% load bootstrap5 %}
 
 {% block content %}
     <div class="d-flex align-items-center gap-2 mb-4">
@@ -22,13 +23,18 @@
 
         <span class="mt-0 border border-secondary"></span>
 
-        <form>
-            <div class="d-flex gap-3 flex-column">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">Ask</button>
+            {% endbuttons %} 
+            {% comment %} <div class="d-flex gap-3 flex-column">
                 <div>
                     <textarea class="mb-3 form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Enter your answer here.."></textarea>
                     <button type="submit" class=" mb-3 btn btn-primary">Answer</button>
                 </div>
-            </div>
+            </div> {% endcomment %}
         </form>
 
     </articles>

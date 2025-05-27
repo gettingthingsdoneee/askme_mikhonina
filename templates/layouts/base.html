@@ -1,4 +1,5 @@
 {% load static %}
+
 <!doctype html>
 <html lang="en">
 
@@ -8,6 +9,7 @@
     <title>Bootstrap demo</title>
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
   </head>
 
   <body>
@@ -19,18 +21,25 @@
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Ask!</button>
             </form>
-
-            <div class="d-flex ap-2 align-items-center">
-              <div class="me-3">
-                  <img src="hello.jpg" class="p-2 img-thumbnail "  alt="...">
-              </div>
-              <div class="content">
+            {% if request.user.is_authenticated %}
+              <div class="d-flex ap-2 align-items-center">
+                <div class="me-3">
+                    <img src="{{MEDIA_URL}}{{.avatar}}" class="img-thumbnail"  alt="...">
+                </div>
+                <div class="content">
+                  
                   <div class="content__name">Dr. Pepper</div>
                   <div class="content__links">
-                      <a href="#">Settings</a>
-                    <a href="#">Log out</a>
-                  </div>
+                      <a href="profile/edit">Settings</a>
+                      <a href="/logout">Log out</a>
+                  </div>  
               </div>
+            {% else %} 
+              <div class="content__links">
+                  <a href="login">Log in</a>
+                  <a href="signup">Register</a>
+              </div>
+            {% endif %}  
   
             </div>
 
@@ -75,7 +84,6 @@
           </aside>
         </div>
       </main>
-    <script src="js/bootstrap.bundle.js" ></script>
   </body>
 
 </html>
