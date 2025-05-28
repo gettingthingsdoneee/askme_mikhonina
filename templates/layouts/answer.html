@@ -3,27 +3,34 @@
     <div class="card-body">
         <div class="row">
         <div class="col-2">
-            <div style="height: 70px" class="border mb-2 w-100">
-            <img 
-                src={%static "/img/another_avatar.jpeg"%} 
+            <div style="height:130px" class="border mb-2 w-100 h-90">
+                <img 
+                src="{{answer.profile.avatar.url}}" 
                 alt="img" 
-                class="img-fluid">
+                class="img-fluid img-thumbnail">
             </div>
             <div>
-            <input type="number" class="form-control" value="5">
+                <form action="{% url 'answer_like' answer_id=answer.id%}" method="POST">
+                    {% csrf_token %}
+                    <button class="w-100 btn-secondary btn btn-sm">Like {{answer.likes_count}}</button>
+                </form> 
             </div>
         </div>
         <div class="col d-flex flex-column justify-content-between">
             <div>
-                <h5 class="card-title">
+                {% comment %} <h5 class="card-title">
                     <a href="#">{{answer.title}}</a>
-                </h5>
+                </h5> {% endcomment %}
                 <p class="card-text">{{answer.text}}</p>
             </div>
             <div class="row">
             <div class="col">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="checkDefault">
+                    {% if answer.correct%}
+                        <input class="form-check-input" type="checkbox" value="" id="checkDefault" checked>
+                    {% else %}
+                        <input class="form-check-input" type="checkbox" value="" id="checkDefault">
+                    {% endif %}    
                     <label class="form-check-label" for="checkDefault">
                         Correct
                     </label>

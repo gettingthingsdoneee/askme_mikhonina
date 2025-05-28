@@ -23,12 +23,12 @@
             </form>
             {% if request.user.is_authenticated %}
               <div class="d-flex ap-2 align-items-center">
-                <div class="me-3">
-                    <img src="{{MEDIA_URL}}{{.avatar}}" class="img-thumbnail"  alt="...">
+                <div class="me-3" style="width:50px; height: 70px">
+                    <img src="{{ profile.avatar.url }}" class="img-fluid img-thumbnail"  alt="...">
                 </div>
                 <div class="content">
                   
-                  <div class="content__name">Dr. Pepper</div>
+                  <div class="content__name">{{profile.nickname}}</div>
                   <div class="content__links">
                       <a href="profile/edit">Settings</a>
                       <a href="/logout">Log out</a>

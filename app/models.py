@@ -18,7 +18,9 @@ class QuestionManager(models.Manager):
     
 class AnswerManager(models.Manager):
     def hot_answers(self):
-        return self.order_by('likes_count')   
+        return self.order_by('likes_count')  
+    def new_answers(self):
+        return self.order_by('-created_at') 
 
 class Question(models.Model):
     objects = QuestionManager()
@@ -27,7 +29,7 @@ class Question(models.Model):
     tag = models.ManyToManyField('Tag')
     created_at = models.DateTimeField(auto_now_add=True)
     profile = models.ForeignKey('Profile', on_delete=models.PROTECT)
-    likes_count = models.PositiveIntegerField(default=0)
+    likes_count = models.PositiveIntegerField(default=0, editable=False)
 
     def __str__(self):
         return self.name
@@ -39,6 +41,8 @@ class Answer(models.Model):
     question = models.ForeignKey('Question', on_delete=models.CASCADE)
     correct = models.BooleanField(default=False)
     likes_count = models.PositiveIntegerField(default=0)
+
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.text
